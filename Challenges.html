@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JD CTF</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 50px;
+        }
+        .container {
+            max-width: 600px;
+        }
+        #flag-section {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-success fixed-top">
+        <a class="navbar-brand" href="#">JD CTF</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Challenges.html">Challenge</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+       <div class="jumbotron text-center" id="Home">
+        <h1 class="display-4">Welcome Challenger!</h1>
+    </div>
+
+    <!-- Features Section -->
+    <div class="container" id="Features">
+        <p class="text-center text-success">
+            The monster's hunger, a digital plight, <br>
+            To solve his riddle, you must use your sight.<br>
+            <br>
+            First, delve deep, where pages reside,<br>
+            'Developers tools' where secrets hide.<br>
+            <br>
+            Then to Application, you must proceed,<br>
+            Where data's stored, a digital seed.<br>
+            <br>
+            Cookies awaut, in that hidden place,<br>
+            Find 'secret' there, set a steady pace.<br>
+            <br>
+            Change its value, a tasty new treat,<br>
+            To 'cookie_so_tasty,'the monster to greet.<br>
+            <br>
+            Refresh the page, and the flag will appear, <br>
+            Your coding prowess, now crystal clear<br></p>
+            <br>
+            <br>
+            <div id="message"></div> <!-- Added message element -->
+    </div>
+
+    <script>
+        function getCookie(name) {
+            const value = `${document.cookie}`;
+            const parts = value.split(`${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+    
+        function checkCookie() {
+        const secretCookie = getCookie("secret");
+        const messageElement = document.getElementById("message");
+
+        if (secretCookie === "cookie_so_tasty") {
+            window.location.href = "flag.html"; // Redirect to the flag page
+        }
+        
+    }
+    
+        checkCookie();
+    </script>
+
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start">
+        <div class="text-center p-3 bg-success text-white">
+        </div>
+    </footer>
+</body>
+</html>
